@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:poc_automated_tests/counter.dart';
+import 'package:poc_automated_tests/http_request.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,6 +49,11 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '${_counter.value}',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            ElevatedButton(
+              onPressed: () => HttpRequest.head(
+                  'https://docs.flutter.dev/cookbook/testing/unit/mocking'),
+              child: const Text('HTTP Head Request'),
             ),
           ],
         ),
