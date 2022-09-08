@@ -5,28 +5,28 @@ import 'package:poc_automated_tests/home.dart';
 void main() {
   group('Home', () {
     testWidgets(
-      'Home has a title and a custom message',
-      _homeHasTitleAndCustomMessage,
+      'Home should have a title and a custom message',
+      _homeShouldHaveTitleAndCustomMessage,
     );
 
     testWidgets(
-      'Home has a title and a default message',
-      _homeHasTitleAndDefaultMessage,
+      'Home should have a title and a default message',
+      _homeShouldHaveTitleAndDefaultMessage,
     );
 
     testWidgets(
-      'Counter text is updating when the increment button is pressed.',
-      _counterTextIsUpdatingWhenIncrementButtonIsPressed,
+      'Counter text should update when the increment button is pressed.',
+      _counterTextShouldUpdateWhenIncrementButtonIsPressed,
     );
 
     testWidgets(
-      'Counter text is updating when the decrement button is pressed.',
-      _counterTextIsUpdatingWhenDecrementButtonIsPressed,
+      'Counter text should update when the decrement button is pressed.',
+      _counterTextShouldUpdateWhenDecrementButtonIsPressed,
     );
   });
 }
 
-Future<void> _homeHasTitleAndCustomMessage(WidgetTester tester) async {
+Future<void> _homeShouldHaveTitleAndCustomMessage(WidgetTester tester) async {
   const String title = 'my title';
   const String message = 'my message';
 
@@ -46,7 +46,7 @@ Future<void> _homeHasTitleAndCustomMessage(WidgetTester tester) async {
   expect(messageFinder, findsOneWidget);
 }
 
-Future<void> _homeHasTitleAndDefaultMessage(WidgetTester tester) async {
+Future<void> _homeShouldHaveTitleAndDefaultMessage(WidgetTester tester) async {
   const String title = 'my title';
 
   await tester.pumpWidget(
@@ -66,7 +66,7 @@ Future<void> _homeHasTitleAndDefaultMessage(WidgetTester tester) async {
   expect(messageFinder, findsOneWidget);
 }
 
-Future<void> _counterTextIsUpdatingWhenIncrementButtonIsPressed(
+Future<void> _counterTextShouldUpdateWhenIncrementButtonIsPressed(
     WidgetTester tester) async {
   await tester.pumpWidget(
     const MaterialApp(
@@ -93,7 +93,7 @@ Future<void> _counterTextIsUpdatingWhenIncrementButtonIsPressed(
   expect(counterTextData, '1');
 }
 
-Future<void> _counterTextIsUpdatingWhenDecrementButtonIsPressed(
+Future<void> _counterTextShouldUpdateWhenDecrementButtonIsPressed(
     WidgetTester tester) async {
   await tester.pumpWidget(
     const MaterialApp(
