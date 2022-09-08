@@ -28,6 +28,11 @@ void main() {
       'HTTP button should be clickable',
       _httpButtonShouldBeClickable,
     );
+
+    testWidgets(
+      'Golden test',
+      _goldenTest,
+    );
   });
 }
 
@@ -140,4 +145,19 @@ Future<void> _httpButtonShouldBeClickable(WidgetTester tester) async {
 
   await tester.tap(findButton);
   await tester.pumpAndSettle();
+}
+
+Future<void> _goldenTest(WidgetTester tester) async {
+  await tester.pumpWidget(
+    const MaterialApp(
+      home: Home(
+        title: 'my title',
+      ),
+    ),
+  );
+
+  await expectLater(
+    find.byType(Home),
+    matchesGoldenFile('home.png'),
+  );
 }
