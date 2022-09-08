@@ -43,7 +43,9 @@ class _HomeState extends State<Home> {
             ElevatedButton(
               onPressed: () => HttpRequest.head(
                   'https://docs.flutter.dev/cookbook/testing/unit/mocking'),
-              child: const Text('HTTP Head Request'),
+              child: const Text(
+                'HTTP Head Request',
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

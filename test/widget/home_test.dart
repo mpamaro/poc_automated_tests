@@ -23,6 +23,11 @@ void main() {
       'Counter text should update when the decrement button is pressed.',
       _counterTextShouldUpdateWhenDecrementButtonIsPressed,
     );
+
+    testWidgets(
+      'HTTP button should be clickable',
+      _httpButtonShouldBeClickable,
+    );
   });
 }
 
@@ -87,7 +92,7 @@ Future<void> _counterTextShouldUpdateWhenIncrementButtonIsPressed(
   expect(counterTextData, '0');
 
   await tester.tap(findIncrementButton);
-  await tester.pump();
+  await tester.pumpAndSettle();
 
   counterTextData = (findCounterText.evaluate().first.widget as Text).data;
   expect(counterTextData, '1');
@@ -114,8 +119,25 @@ Future<void> _counterTextShouldUpdateWhenDecrementButtonIsPressed(
   expect(counterTextData, '0');
 
   await tester.tap(findDecrementButton);
-  await tester.pump();
+  await tester.pumpAndSettle();
 
   counterTextData = (findCounterText.evaluate().first.widget as Text).data;
   expect(counterTextData, '-1');
+}
+
+Future<void> _httpButtonShouldBeClickable(WidgetTester tester) async {
+  await tester.pumpWidget(
+    const MaterialApp(
+      home: Home(
+        title: 'my title',
+      ),
+    ),
+  );
+
+  Finder findButton = find.byType(ElevatedButton);
+
+  expect(findButton, findsOneWidget);
+
+  await tester.tap(findButton);
+  await tester.pumpAndSettle();
 }
