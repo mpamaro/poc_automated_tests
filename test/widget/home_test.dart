@@ -14,8 +14,15 @@ void main() {
       _homeShouldHaveTitleAndDefaultMessage,
     );
 
+    // testWidgets(
+    //   'Counter text should update when the increment button is pressed.',
+    //   _counterTextShouldUpdateWhenIncrementButtonIsPressed,
+    // );
+
     testWidgets(
-      'Counter text should update when the increment button is pressed.',
+      'GIVEN counter is 0 '
+      'WHEN user taps increment button '
+      'THEN counter should be 1',
       _counterTextShouldUpdateWhenIncrementButtonIsPressed,
     );
 
